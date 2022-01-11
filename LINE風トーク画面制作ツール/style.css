@@ -1,0 +1,190 @@
+/* 今回は、li（幅100%）の中に、div（吹き出し）を
+挿入する。吹き出しの三角形は疑似要素を使用する。 */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+}
+h1{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/*チャットのフィールド*/
+#field{
+    width: 320px;
+    height: 568px;
+    padding: 7px 0 14px;
+    box-sizing: border-box;
+    background-color: #EEE;
+    margin: 0 auto;
+    background-color: #7193c1;
+    /*横向きのスクロール禁止*/
+    overflow-x: hidden;
+    /*縦向きのスクロール許可*/
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    /*IE、Edgeでスクロールバーを非表示にする*/
+    -ms-overflow-style: none;
+}
+/*Chrome、Safariでスクロールバーを非表示にする*/
+#field::-webkit-scrollbar {
+    display:none;
+}
+#input-field{
+
+}
+/*入力する場所*/
+#chat-input{
+	width: 500px;
+	height: 100px;
+	margin: 10px;
+}
+#chat-input:focus{
+
+}
+/*送信ボタン*/
+#chat-button{
+
+}
+#chat-button:focus{
+
+}
+
+#chat-ul{
+    /*ulのデフォルの隙間を消す*/
+    padding: 0;
+    list-style: none;
+}
+#chat-ul > li{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    word-wrap: break-word;
+}
+
+#chat-ul > li > div{
+    display: inline-block;
+    box-sizing: border-box;
+    color: #000;
+    border-radius: 6px;
+    min-height: 23px;
+    max-width: 150px;
+    padding: 7px 13px;
+    font-size: 15px;
+    line-height: 1.2em;
+}
+/* 左のトークボックス */
+.chat-ul .left:before { /* 左の丸アイコン */
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	background-image:url(image/icon_left.jpg); /* ←アイコンはここを変更 */
+	margin:0 0 0 5px;
+}
+
+.chat-ul .left .chat-left::before{ /* 左ふきだしの左半円ホワイトを描画 */
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  left: -10px;
+  top: -10px;
+  border-left: 10px solid white;
+  border-top: 10px solid white;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+/* 白い半円 */
+.chat-ul .left .chat-left::after{ /* 左ふきだしの左半円ブルーを描画 */
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  left: -15px;
+  top: -25px;
+  border-left: 15px solid #7193c1;
+  border-top: 15px solid #7193c1;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+.chat-ul .left .chat-left { /* 左ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:white;
+	border-radius:10px;
+	padding:10px;
+	margin:0 0 0 15px;
+}
+/* 右のトークボックス */
+.chat-ul .right:after { /* 右の丸アイコン */
+	content:'';
+	display:inline-block;
+	width:50px;
+	height:50px;
+	vertical-align:top;
+	border-radius:50%;
+	background-size:cover;
+	background-image:url(image/icon_right.jpg);  /* ←アイコンはここを変更 */
+	margin:0 5px 0 0;
+}
+
+.chat-ul .right .chat-right::before{ /* 左ふきだしの左三角グリーンを描画 */
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(135deg);
+  right: -10px;
+  top: -10px;
+  border-left: 10px solid #85e249;
+  border-top: 10px solid #85e249;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+/* 白い半円 */
+.chat-ul .right .chat-right::after{ /* 左ふきだしの左半円ブルーを描画 */
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(135deg);
+  right: -15px;
+  top: -25px;
+  border-left: 15px solid #7193c1;
+  border-top: 15px solid #7193c1;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+.chat-ul .right .chat-right { /* 右ふきだしの本体 */
+	display:inline-block;
+	position:relative;
+	background-color:#85e249;
+	border-radius:10px;
+	padding:10px;
+	margin:0 15px 0 0;
+}
+
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
